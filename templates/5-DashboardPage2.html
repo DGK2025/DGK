@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>داشبورد Digi Karafarini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style5.css') }}">
+</head>
+<body>
+<div class="dashboard-container">
+  <div class="sidebar">
+    <div class="sidebar-logo">Digi Karafarini</div>
+    <div class="menu">
+      <button class="menu-btn active" data-section="businessplan">بیزنس پلن جدید</button>
+      <button class="menu-btn" data-section="resume">رزومه جدید</button>
+      <button class="menu-btn" data-section="files">فایل‌های من</button>
+      <button class="menu-btn" data-section="account">حساب کاربری</button>
+    </div>
+    <button class="sidebar-logout"><a href="{{ url_for('main_page') }}">خروج</a></button>
+  </div>
+  <div class="main-content">
+
+    <!-- Business Plan Form -->
+    <section class="dashboard-section active" id="section-businessplan">
+      <div class="dashboard-title">درخواست بیزنس‌پلن با هوش مصنوعی</div>
+      <form class="ai-form" id="businessplan-form" method="POST" action="{{ url_for('businessplan') }}">
+        <label>نام کسب‌وکار:</label>
+        <input type="text" name="business_name" required>
+        <label>حوزه فعالیت:</label>
+        <input type="text" name="field" required>
+        <label>وضعیت فعلی:</label>
+        <select name="status" required>
+          <option>ایده</option><option>تأسیس‌شده</option><option>در حال توسعه</option><option>دارای مشتری</option>
+        </select>
+        <label>محصول/خدمت اصلی:</label>
+        <input type="text" name="main_product" required>
+        <label>ویژگی متمایز:</label>
+        <input type="text" name="unique_feature" required>
+        <label>مشتریان هدف:</label>
+        <input type="text" name="target_customers" required>
+        <label>بازار هدف:</label>
+        <input type="text" name="target_market" required>
+        <label>درآمد فعلی یا پیش‌بینی:</label>
+        <input type="text" name="income">
+        <label>سرمایه مورد نیاز:</label>
+        <input type="text" name="needed_investment">
+        <label>هدف از تهیه بیزنس‌پلن:</label>
+        <input type="text" name="businessplan_goal" required>
+        <button class="ai-btn" type="submit">ساخت بیزنس‌پلن 🚀</button>
+      </form>
+      {% if businessplan_result %}
+        <div class="ai-result-box">
+          <h3>خروجی هوش مصنوعی:</h3>
+                <div class="ai_output">
+                {{ businessplan_result|safe }}
+                </div>
+        </div>
+      {% endif %}
+    </section>
+
+    <!-- Resume Form -->
+    <section class="dashboard-section" id="section-resume">
+      <div class="dashboard-title">درخواست رزومه هوشمند</div>
+      <form class="ai-form" id="resume-form" method="POST" action="{{ url_for('resume') }}">
+        <label>نام و نام خانوادگی:</label>
+        <input type="text" name="fullname" required>
+        <label>سمت یا شغل موردنظر:</label>
+        <input type="text" name="job" required>
+        <label>تحصیلات:</label>
+        <input type="text" name="education" required>
+        <label>تجربه‌های شغلی:</label>
+        <textarea name="jobs" rows="2"></textarea>
+        <label>مهارت‌ها:</label>
+        <input type="text" name="skills" required>
+        <label>دستاوردها/گواهینامه‌ها:</label>
+        <textarea name="achievements" rows="2"></textarea>
+        <label>زبان‌ها:</label>
+        <input type="text" name="languages">
+        <label>ویژگی‌های فردی (اختیاری):</label>
+        <textarea name="personal" rows="2"></textarea>
+        <label>ایمیل و تماس:</label>
+        <input type="text" name="contact">
+        <button class="ai-btn" type="submit">ساخت رزومه ✍️</button>
+      </form>
+      {% if resume_result %}
+        <div class="ai-result-box">
+          <h3>رزومه پیشنهادی:</h3>
+          <div class="ai_output">
+                {{ resume_result|safe }}
+            </div>
+        </div>
+      {% endif %}
+    </section>
+
+    <!-- باقی بخش‌ها مثل account و files ... (می‌تونی از پاسخ قبل جایگذاری کنی) -->
+
+  </div>
+</div>
+
+<!-- JS Tab switcher -->
+<script>
+const btns = document.querySelectorAll('.menu-btn');
+const sections = document.querySelectorAll('.dashboard-section');
+btns.forEach(btn => {
+  btn.addEventListener('click', function(){
+    btns.forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    const sec = this.dataset.section;
+    sections.forEach(s => {
+      if(s.id==="section-"+sec) s.classList.add('active');
+      else s.classList.remove('active');
+    });
+  });
+});
+</script>
+</body>
+</html>

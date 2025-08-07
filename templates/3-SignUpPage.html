@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>ثبت نام | Digi Karafarini</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+
+</head>
+<body>
+  <div class="login-container">
+    <img src="{{ url_for('static', filename='img/Digi Karafarini logo 4.png') }}" alt="Digi Karafarini Logo" class="login-logo">
+    <h1>ثبت نام</h1>
+
+    <form method="POST" action="{{ url_for('sign_up') }}">
+      <input type="text" name="email_or_mobile" placeholder="ایمیل یا شماره موبایل" required autocomplete="username">
+      <input type="password" name="password" placeholder="رمز عبور (حداقل ۸ کاراکتر)" required autocomplete="new-password">
+      <input type="password" name="confirm_password" placeholder="تکرار رمز عبور" required autocomplete="new-password">
+      <button type="submit">ثبت نام</button>
+    </form>
+
+    <!-- نمایش پیام‌های فلش -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+        {% for msg in messages %}
+          <li>{{ msg }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <div class="bottom-links">
+      قبلاً ثبت‌نام کرده‌اید؟
+      <a href="{{ url_for('login') }}">ورود</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود | Digi Karafarini</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+    <!-- فونت Vazirmatn -->
+</head>
+<body>
+  <div class="login-container">
+    <img src="{{ url_for('static', filename='img/Digi Karafarini logo 4.png') }}" alt="Digi Karafarini Logo" class="login-logo">
+    <h1>دیجی کارآفرینی</h1>
+    <p class="subtitle">برای ورود به حساب کاربری، اطلاعات خود را وارد کنید</p>
+    
+    <!-- نمایش فلش مسیج -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form id="loginForm" method="POST" action="{{ url_for('login') }}">
+      <input name="email_or_mobile" type="text" placeholder="ایمیل یا شماره موبایل" required autocomplete="username">
+      <input name="password" type="password" placeholder="رمز عبور" required autocomplete="current-password">
+      <button type="submit">ورود</button>
+    </form>
+    
+    <div class="bottom-links">
+      <a href="{{ url_for('sign_up') }}">ثبت‌نام</a>
+      <span> | </span>
+      <a href="{{ url_for('forgot_password') }}"> فراموشی رمز عبور؟</a>
+    </div>
+  </div>
+  <script src="/static/main.js"></script>
+</body>
+</html>

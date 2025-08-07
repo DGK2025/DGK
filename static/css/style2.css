@@ -1,0 +1,146 @@
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../Fonts/webfonts/Vazirmatn-Medium.woff2') format('woff2'),
+       url('../Fonts/ttf/Vazirmatn-Medium.ttf') format('truetype'),
+       url('../Fonts/variable/Vazirmatn[wght].ttf') format('truetype');
+  font-weight: normal;
+}
+
+    html{
+        font-family: 'Vazirmatn';
+    }
+
+
+body {
+  font-family: 'Vazirmatn';
+  background: #eaf2fa;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+    input::placeholder {
+  font-family: 'Vazirmatn', sans-serif !important;        
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+
+.login-container {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 32px rgba(39, 66, 122, 0.12);
+  padding: 2rem;
+  width: 100%;
+  max-width: 370px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.login-logo {
+  width: 17rem;
+  object-fit: contain;
+  margin-bottom: 3rem;
+}
+
+h1 {
+  color: #258edd;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  margin-top: 0;
+  letter-spacing: -1px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #27427a;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+}
+
+.flash-messages {
+  color: #e53935;
+  font-size: 0.98rem;
+  margin: 10px 0 5px;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+input[type="text"], input[type="password"] {
+  background: #f6f9fc;
+  border: 1px solid #b7cbe8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  color: #20305c;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #2ba2db;
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg,#258edd,#2ba2db);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 0;
+  font-size: 1.08rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(90deg,#2ba2db,#258edd);
+  box-shadow: 0 4px 16px rgba(43,162,219,0.07);
+}
+
+.bottom-links {
+  margin-top: 18px;
+  color: #27427a;
+  font-size: 0.98rem;
+}
+
+.bottom-links a {
+  color: #258edd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+
+.bottom-links a:hover {
+  color: #2ba2db;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 28px 8vw;
+    border-radius: 16px;
+    max-width: 98vw;
+  }
+  h1 { font-size: 1.3rem; }
+  .login-logo {
+    width: 58px;
+    height: 58px;
+  }
+}

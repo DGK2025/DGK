@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digi Karafarini - بیزینس پلن نویس هوشمند</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='img/Digi Karafarini logo 3.png') }}" alt="ِDigi Karafarini Logo" class="logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('main_page') }}">خانه</a></li>
+        <li><a href="#">امکانات</a></li>
+        <li><a href="#">درباره ما</a></li>
+        <li><a href="{{ url_for('login') }}">ورود</a></li>
+        <li><a href="{{ url_for('sign_up') }}" class="cta-btn" style="padding:0.4rem 1.8rem;font-size: 1rem;">ثبت‌نام رایگان</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container hero">
+    <div class="hero-content">
+      <h1 class="hero-title">بیزینس پلن و رزومه حرفه‌ای با هوش مصنوعی</h1>
+      <div class="hero-desc">
+        Digi Karafarini اولین سرویس ایرانی برای ساخت <b>بیزینس پلن</b> و <b>رزومه استارتاپی</b> فقط در چند دقیقه است.<br>
+        فقط ایده‌ات را وارد کن، هوش مصنوعی همه مسیر را برای تو هموار می‌کند!
+      </div>
+      <button class="cta-btn">شروع</button>
+    </div>
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='img/main.png') }}" alt="Digi Karafarini logo Logo">
+    </div>
+  </div>
+  <section class="container features" id="features">
+    <h2>امکانات Digi Karafarini</h2>
+    <div class="feature-list">
+      <div class="feature">
+        <div class="feature-title">ایده‌دهی و تولید سریع پلن</div>
+        <div class="feature-desc">از یک جمله ایده، یک بیزینس پلن کامل و حرفه‌ای تحویل بگیر!</div>
+      </div>
+      <div class="feature">
+        <div class="feature-title">رزومه‌سازی استارتاپی</div>
+        <div class="feature-desc">رزومه و پروفایل کسب‌وکار خودت را حرفه‌ای بساز و بسادگی ویرایش کن.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-title">فرمت خروجی PDF</div>
+        <div class="feature-desc">امکان ذخیره سریع و دانلود پلن و رزومه به صورت PDF استاندارد و قابل‌ارائه.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-title">ورود و ذخیره امن</div>
+        <div class="feature-desc">ثبت‌نام سریع، رمز یکبارمصرف و امنیت بالای داده‌ها.</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div>
+    © 2025 Digi Karafarini | توسعه با ❤️ برای کارآفرینان ایرانی
+  </div>
+</footer>
+</body>
+</html>
